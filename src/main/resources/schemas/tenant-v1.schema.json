@@ -69,6 +69,7 @@
     "organization": {
       "id": {
         "type": "string",
+        "format": "uuid",
         "description": "UUID: Ronin Organization ID"
       },
       "name": {
@@ -79,6 +80,7 @@
       },
       "parentOrganizationId": {
         "type": "string",
+        "format": "uuid",
         "description": "UUID: The parent Ronin Organization ID"
       },
       "createdAt": {
@@ -112,7 +114,7 @@
       "properties": {
         "id": {
           "type": "string",
-          "description": "UUID: Ronin Organization ID"
+          "description": "The Ronin Tenant ID"
         },
         "shortName": {
           "type": "string"
@@ -123,8 +125,8 @@
         "status": {
           "$ref": "#/$defs/tenantStatus"
         },
-        "organizationId": {
-          "type": "string"
+        "organization": {
+          "$ref": "#/$defs/organization"
         },
         "clientId": {
           "type": "string"
