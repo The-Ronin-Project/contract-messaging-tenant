@@ -1,5 +1,5 @@
 {
-  "$id": "https://github.com/projectronin/ronin-contract-tenant/blob/main/v1/tenant-v1.schema.json",
+  "$id": "https://github.com/projectronin/contract-messaging-tenant/blob/main/v1/tenant-v1.schema.json",
   "title": "Ronin Tenant V1",
   "description": "A Ronin tenant",
   "type": "object",
@@ -67,35 +67,36 @@
       ]
     },
     "organization": {
-      "id": {
-        "type": "string",
-        "format": "uuid",
-        "description": "UUID: Ronin Organization ID"
-      },
-      "name": {
-        "type": "string"
-      },
-      "status": {
-        "$ref": "#/$defs/organizationStatus"
-      },
-      "parentOrganizationId": {
-        "type": "string",
-        "format": "uuid",
-        "description": "UUID: The parent Ronin Organization ID"
-      },
-      "createdAt": {
-        "type": "string",
-        "format": "date-time"
-      },
-      "createdBy": {
-        "type": "string"
-      },
-      "updatedAt": {
-        "type": "string",
-        "format": "date-time"
-      },
-      "updatedBy": {
-        "type": "string"
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "UUID: Ronin Organization ID"
+        },
+        "name": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/$defs/organizationStatus"
+        },
+        "parentOrganizationId": {
+          "type": "string",
+          "description": "UUID: The parent Ronin Organization ID"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedBy": {
+          "type": "string"
+        }
       },
       "required": [
         "id",
