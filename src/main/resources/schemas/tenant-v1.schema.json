@@ -71,6 +71,7 @@
       "properties": {
         "id": {
           "type": "string",
+          "format": "uuid",
           "description": "UUID: Ronin Organization ID"
         },
         "name": {
@@ -81,6 +82,7 @@
         },
         "parentOrganizationId": {
           "type": "string",
+          "format": "uuid",
           "description": "UUID: The parent Ronin Organization ID"
         },
         "createdAt": {
