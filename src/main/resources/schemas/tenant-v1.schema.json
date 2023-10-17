@@ -132,7 +132,8 @@
           "$ref": "#/$defs/organization"
         },
         "clientId": {
-          "type": "string"
+          "type": "string",
+          "format": "uuid"
         },
         "clientAccess": {
           "type": "boolean"
