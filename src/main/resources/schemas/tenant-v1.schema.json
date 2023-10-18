@@ -1,0 +1,169 @@
+{
+  "$id": "https://github.com/projectronin/contract-messaging-tenant/blob/main/v1/tenant-v1.schema.json",
+  "title": "Ronin Tenant V1",
+  "description": "A Ronin tenant",
+  "type": "object",
+  "properties": {
+    "create": {
+      "description": "This represents an event when a new tenant is created",
+      "$ref": "#/$defs/tenant"
+    },
+    "update": {
+      "description": "This represents an event when a tenant is updated",
+      "$ref": "#/$defs/tenant"
+    },
+    "delete": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The tenant ID"
+        },
+        "deletedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The time when the tenant was deleted"
+        }
+      },
+      "required": [
+        "id",
+        "deletedAt"
+      ]
+    }
+  },
+  "$defs": {
+    "reusedSchema": {
+      "type": "object",
+      "properties": {
+        "intValue": {
+          "type": "integer",
+          "description": "This is a required integer value"
+        },
+        "strValue": {
+          "type": "string",
+          "description": "This is a required string value"
+        },
+        "dateValue": {
+          "type": "string",
+          "format": "date",
+          "description": "This is an optional date value"
+        },
+        "dateTimeValue": {
+          "type": "string",
+          "format": "date-time",
+          "description": "This is an optional date + time value"
+        }
+      },
+      "required": [
+        "intValue",
+        "strValue"
+      ]
+    },
+    "organizationStatus": {
+      "type": "string",
+      "enum": [
+        "ACTIVE",
+        "DELETED"
+      ]
+    },
+    "organization": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "UUID: Ronin Organization ID"
+        },
+        "name": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/$defs/organizationStatus"
+        },
+        "parentOrganizationId": {
+          "type": "string",
+          "format": "uuid",
+          "description": "UUID: The parent Ronin Organization ID"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedBy": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ]
+    },
+    "tenantStatus": {
+      "type": "string",
+      "enum": [
+        "ACTIVE",
+        "DELETED"
+      ]
+    },
+    "tenant": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The Ronin Tenant ID"
+        },
+        "shortName": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/$defs/tenantStatus"
+        },
+        "organization": {
+          "$ref": "#/$defs/organization"
+        },
+        "clientId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "clientAccess": {
+          "type": "boolean"
+        },
+        "issUrl": {
+          "type": "string"
+        },
+        "defaultTimezone": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedBy": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "shortName",
+        "name"
+      ]
+    }
+  }
+}
