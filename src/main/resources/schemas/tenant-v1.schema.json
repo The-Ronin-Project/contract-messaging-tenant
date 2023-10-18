@@ -4,33 +4,55 @@
   "description": "A Ronin tenant",
   "type": "object",
   "properties": {
-    "create": {
-      "description": "This represents an event when a new tenant is created",
-      "$ref": "#/$defs/tenant"
+    "id": {
+      "type": "string",
+      "description": "The Ronin Tenant ID"
     },
-    "update": {
-      "description": "This represents an event when a tenant is updated",
-      "$ref": "#/$defs/tenant"
+    "shortName": {
+      "type": "string"
     },
-    "delete": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string",
-          "description": "The tenant ID"
-        },
-        "deletedAt": {
-          "type": "string",
-          "format": "date-time",
-          "description": "The time when the tenant was deleted"
-        }
-      },
-      "required": [
-        "id",
-        "deletedAt"
-      ]
+    "name": {
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/$defs/tenantStatus"
+    },
+    "organization": {
+      "$ref": "#/$defs/organization"
+    },
+    "clientId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "clientAccess": {
+      "type": "boolean"
+    },
+    "issUrl": {
+      "type": "string"
+    },
+    "defaultTimezone": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "createdBy": {
+      "type": "string"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedBy": {
+      "type": "string"
     }
   },
+  "required": [
+    "id",
+    "shortName",
+    "name"
+  ],
   "$defs": {
     "reusedSchema": {
       "type": "object",
@@ -110,59 +132,6 @@
       "enum": [
         "ACTIVE",
         "DELETED"
-      ]
-    },
-    "tenant": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string",
-          "description": "The Ronin Tenant ID"
-        },
-        "shortName": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "status": {
-          "$ref": "#/$defs/tenantStatus"
-        },
-        "organization": {
-          "$ref": "#/$defs/organization"
-        },
-        "clientId": {
-          "type": "string",
-          "format": "uuid"
-        },
-        "clientAccess": {
-          "type": "boolean"
-        },
-        "issUrl": {
-          "type": "string"
-        },
-        "defaultTimezone": {
-          "type": "string"
-        },
-        "createdAt": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "createdBy": {
-          "type": "string"
-        },
-        "updatedAt": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "updatedBy": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "id",
-        "shortName",
-        "name"
       ]
     }
   }
