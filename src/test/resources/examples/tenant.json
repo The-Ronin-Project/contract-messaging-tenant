@@ -13,7 +13,7 @@
     "updatedAt": "2022-10-14T13:15:16Z",
     "updatedBy": "TBD"
   },
-  "authType": "MOCK",
+  "type": "ORACLE",
   "clientId": "b7741615-d2fd-4dd3-a9b1-4a43b09178da",
   "clientAccess": true,
   "issUrl": "https://projectronin.io/iss",

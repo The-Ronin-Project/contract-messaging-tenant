@@ -20,8 +20,8 @@
     "organization": {
       "$ref": "#/$defs/organization"
     },
-    "authType": {
-      "$ref": "#/$defs/authType"
+    "type": {
+      "$ref": "#/$defs/type"
     },
     "clientId": {
       "type": "string",
@@ -55,16 +55,16 @@
     "id",
     "shortName",
     "name",
-    "authType"
+    "type"
   ],
   "$defs": {
-    "authType": {
+    "type": {
       "type": "string",
       "enum": [
-        "MDA",
-        "MOCK",
-        "OPENID",
-        "SOF"
+        "EPIC",
+        "ORACLE",
+        "MOCK_EPIC",
+        "MOCK_ORACLE"
       ]
     },
     "reusedSchema": {
