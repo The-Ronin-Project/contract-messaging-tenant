@@ -20,6 +20,9 @@
     "organization": {
       "$ref": "#/$defs/organization"
     },
+    "authType": {
+      "$ref": "#/$defs/authType"
+    },
     "clientId": {
       "type": "string",
       "format": "uuid"
@@ -51,9 +54,19 @@
   "required": [
     "id",
     "shortName",
-    "name"
+    "name",
+    "authType"
   ],
   "$defs": {
+    "authType": {
+      "type": "string",
+      "enum": [
+        "MDA",
+        "MOCK",
+        "OPENID",
+        "SOF"
+      ]
+    },
     "reusedSchema": {
       "type": "object",
       "properties": {
