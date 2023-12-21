@@ -20,6 +20,9 @@
     "organization": {
       "$ref": "#/$defs/organization"
     },
+    "type": {
+      "$ref": "#/$defs/type"
+    },
     "clientId": {
       "type": "string",
       "format": "uuid"
@@ -51,9 +54,19 @@
   "required": [
     "id",
     "shortName",
-    "name"
+    "name",
+    "type"
   ],
   "$defs": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "EPIC",
+        "ORACLE",
+        "MOCK_EPIC",
+        "MOCK_ORACLE"
+      ]
+    },
     "reusedSchema": {
       "type": "object",
       "properties": {
